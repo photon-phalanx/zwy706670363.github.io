@@ -59,6 +59,75 @@
 
   
     
+    <h3 class="article-title"><a href="/2016/12/06/angular-digest/"><span>Angular学习笔记——脏检查机制</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/12/06/angular-digest/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-12-06T14:49:46.000Z">
+          2016-12-06
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>“脏检查”是Angular中的核心机制之一，它是实现双向绑定，MVVM模式的重要基础。</p>
+<p>用一句话来概括”脏检查机制”:Angular将双向绑定转换为一堆watch表达式，然后递归检查这些watch表达式的结果是否变了，如果变了，则执行相应的watcher函数。等到Model的值不再变化，也就不会再有watcher函数被触发，一个完整的digest循环就结束了。这时，浏览器就会重新渲染DOM来体现model的改变。</p>
+<h3 id="Angular中的-watch函数"><a href="#Angular中的-watch函数" class="headerlink" title="Angular中的$watch函数"></a>Angular中的$watch函数</h3><p>watcher函数是由View上的指令（ngBind、ngShow等）或 {{ }} 表达式（严格来说是$compile服务）所注册的。指令在Angular的compile阶段会被逐一解析、注册。</p>
+<p>在Angular中，大部分指令都会依赖watcher函数来监听Model的改变，以更新View的显示，它是Angular中”脏检查机制”的核心之一。</p>
+<p>所有的watcher函数都会被unshift函数插入到scope.$$watchers数组的头部，以便后边的$digest使用。</p>
+<h3 id="Angular中的-digest函数"><a href="#Angular中的-digest函数" class="headerlink" title="Angular中的$digest函数"></a>Angular中的$digest函数</h3><p>Angular中在View上声明的事件指令，如：ngClick,ngChange等，会将浏览器的事件转发给$scope这个ViewModel的响应函数。当接受View上的事件指令所转发的事件时，就会切换到Angular的上下文环境，来响应这类事件，$digest循环就会触发。</p>
+<p>$digest循环实际上包括两个while循环。它们分别是：处理$evalAsync的异步运算队列，处理$watch的watchers队列。</p>
+<p>当$digest循环发生的时候，它会遍历当前$scope及其所有子$scope上已注册的所有watchers函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$digest:嘿，watcher1，你的值是什么？</div><div class="line">watcher1:是&quot;ngBook&quot;。</div><div class="line">$digest:好的，这值改变过吗？（脏了吗？）</div><div class="line">watcher1:没有，$digest先生。</div><div class="line">$digest（心想）:这个watcher1的值没有被改变过，那继续下一个吧。</div><div class="line">$digest:嘿，watcher2，你的值是多少？</div><div class="line">watcher1:是&quot;破狼&quot;。</div><div class="line">$digest:好的，这值改变过吗？（脏了吗？）</div><div class="line">watcher1:已经被改变过了，刚才的值是&quot;雪狼&quot;，正等待您的到来呢。</div><div class="line">$digest（心想）:这个watcher2的值被改变了，看来一会要更新DOM了。</div><div class="line"></div><div class="line">...继续watcher3,watcher4,watcher5...的询问、查找</div></pre></td></tr></table></figure>
+<blockquote>
+<p>这就是所谓的”脏检查机制”（dirty-checking）。</p>
+</blockquote>
+<p>遍历一遍所有watcher函数称为一轮脏检查。执行完一轮脏检查，如果任何一个watcher所监听的值改变过，那么就会重新再进行一轮脏检查，直到所有的watcher函数都报告其所监听的值不再变了。</p>
+<p>从第一轮脏检查到结果变得稳定，这个过程就是一个完整的$digest循环。当$digest循环结束时，才把模型的变化结果更新到DOM中去。这样可以合并多个更新，防止频繁的DOM操作。</p>
+<blockquote>
+<p>需要注意的是，在$digest循环结束之前，如果超过了10轮脏检查，就会抛出一个异常，以防止脏检查无限循环下去。</p>
+<p>那么什么时候会进入到这个Angular的上下文环境，触发”脏检查机制”呢？</p>
+</blockquote>
+<p>每一个进入Angular上下文环境的事件，都会执行一次$digest循环。对于ngModel监听的表单交互控件来说，每输入一个字符，就会触发一次循环来检查watcher函数，以便及时更新View。在Angular1.3之后可以利用ngModelOptions进行配置，来修改默认的触发方式。</p>
+<p>ngClick、ngSubmit、ngChange等事件指令，$http、$resource这类外部Ajax数据获取的回调函数，以及$timeout、$interval，都会直接或者间接调用$scope.$digest函数。</p>
+<h3 id="Angular中的-apply函数"><a href="#Angular中的-apply函数" class="headerlink" title="Angular中的$apply函数"></a>Angular中的$apply函数</h3><p>$digest是一个内部函数，正常的应用代码是不应该直接调用它的。要想主动触发它，就要调用scope.$apply函数，它是触发Angular”脏检查机制”的常用公开接口。</p>
+<blockquote>
+<p>需要注意的是，Angular只能管理它所已知的行为触发方式，而不能涵盖所有的Angular操作场景。这就是为什么我们在封装第三方jQuery插件时，不能自动更新视图，而需要我们手动调用$scope.$apply。</p>
+</blockquote>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
     <h3 class="article-title"><a href="/2016/12/05/first-article/"><span>Angular学习笔记——启动过程</span></a></h3>
     
   
