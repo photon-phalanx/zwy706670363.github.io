@@ -1,0 +1,209 @@
+*{
+	margin:0;
+	padding:0;
+}
+.text-muted{
+	color:#9d9d9d;
+}
+body{
+	min-width: 600px;
+	font-size: 14px;
+	background-color: #dedede;
+
+	p{
+		margin-bottom: 15px;
+		line-height: 1.6;
+	}
+	a{
+		text-decoration: none;
+	}
+	ul{
+		list-style: none;
+	}
+}
+
+/********** 头部 **********/
+
+header{
+	height: 60px;
+	background-color: #333;
+	position: relative;;
+
+	// 商标
+	#nav-brand{
+		a{
+			padding: 15px;
+		}
+		img{
+			height: 50px;
+			padding-left: 20px;
+		}
+	}
+
+	// 导航栏
+	nav{
+		position: absolute;
+		top: 0;
+		right: 5px;
+
+		ul{
+
+			li{
+				float: left;
+
+				a{
+					display: block;
+					padding: 22px;
+					color:#fff;
+
+					&:hover{
+						color:#9d9d9d;
+						border-bottom: 2px solid #3355D0;
+					}
+				}
+			}
+		}
+	}
+}
+
+/********** 主体部分 **********/
+
+main{
+	
+
+	article{
+		margin-bottom: 20px;
+		margin: 20px;
+		padding: 20px;
+		background-color: #fff;
+		box-shadow: 2px 2px 5px #848484;
+
+		.title-one{
+			margin: 20px 0;
+		}
+
+		.title-two{
+			margin: 10px 0;
+		}
+
+		ul li{
+			margin-bottom: 5px;
+			margin-top: 5px;
+		}
+
+		figure{
+			border: 1px solid #ccc;
+			margin-bottom: 20px;
+			padding: 15px;
+			width: 120px;
+			height: auto;
+			
+			figcaption{
+				text-align: center;
+				margin-bottom: 10px;
+			}
+
+			img{
+				width: 100%;
+			}
+		}
+
+		ol{
+			margin-left: 40px;
+			margin-bottom: 15px;
+
+			li{
+				margin-bottom: 5px;
+				margin-top: 5px;
+			}
+		}
+
+		table{
+			width: 100%;
+			border-collapse: collapse; /*设置表格的边框被合并为单一的边框*/
+
+			thead{
+				background-color: #333;
+				color: #fff;
+
+				th{
+					padding: 5px;
+				}
+			}
+			tbody{
+				tr{
+					td{
+						padding: 5px;
+						border:1px solid #ccc;
+					}	
+
+					&:last-child{
+						background-color: #ccc;
+					}			
+				}
+
+			}
+		}
+	}
+	
+}
+
+/********** 侧栏部分 **********/
+
+aside{
+	margin: 20px;
+	padding: 20px;
+	background-color: #fff;
+	box-shadow: 2px 2px 5px #848484;
+
+	.aside-title{
+		border-left: 3px solid #ccc;
+		padding: 5px;
+	}
+	form{
+		margin-top: 20px;
+
+		.form-group{
+			padding-left: 100px;
+			margin-bottom: 15px;
+
+			label{
+				text-align: right;
+				width: 120px;
+				display: inline-block;
+			}
+
+			textarea{
+				font-size: 14px;
+				width: 50%;
+				vertical-align: top;
+			}
+
+			.form-item{
+				display: inline-block;
+				vertical-align: top;
+
+				input{
+					margin-bottom: 5px;
+				}
+			}
+		}
+
+		button{
+			font-size: 14px;
+			width: 100%;
+			height: 40px;
+			border-style: none;
+			border-radius: 10px;
+			color: #fff;
+			background-color: #3355D0;
+		}
+	}
+}
+
+/********** 底部 **********/
+footer{
+	background-color: #333;
+	text-align: center;
+	height: 60px;
+}

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="styles/main.css">
+	<title>零基础HTML编码及CSS编码</title>
+</head>
+<body>
+	<header role="banner">
+		<div id="nav-brand">
+			<a href="http://www.baidu.com/"><img src="../images/logo.png" alt="百度logo"></a>
+		</div>
+		<nav role="navigation">
+			<ul>
+				<li><a href="#">导航链接一</a></li>
+				<li><a href="#">导航链接二</a></li>
+				<li><a href="#">导航链接三</a></li>
+				<li><a href="#">导航链接四</a></li>
+			</ul>	
+		</nav>
+	</header>
+	<main role="main">
+		<article>
+			<h2 class="title-one">文章一级标题</h2>
+			<h3 class="title-two text-muted">文章二级标题</h3>
+			<p class="text-muted">文章作者 <time>文章发表时间</time></p>
+			<p>&nbsp;&nbsp;这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落。<br>
+			这是一个很长的段落,这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，<a href="http://ife.baidu.com/2016/task/all">这里有一个链接，链接到百度前端技术学院</a>，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落。<br></p>
+			<img src="../images/baidu.jpg" alt="图片">
+			<p>&nbsp;&nbsp;这是一个很长的段落,这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，<a href="http://ife.baidu.com/2016/task/all">这里有一个链接，链接到百度前端技术学院</a>，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落。</p>
+		</article>
+		<article>
+			<h2 class="title-one">另一篇文章一级标题</h2>
+			<h3 class="title-two text-muted">文章二级标题</h3>
+			<p class="text-muted">文章作者 <time>文章发表时间</time></p>
+			<p>&nbsp;&nbsp;这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落,这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落。</p>
+			<img src="../images/baidu.jpg" alt="图片">
+			<ul>
+				<li>列表项目一</li>
+				<li>列表项目二</li>
+				<li>列表项目三</li>
+			</ul>
+		</article>
+		<article>
+			<h2 class="title-one">图片</h2>
+			<figure>
+				<figcaption>陈乔恩</figcaption>
+				<img src="../images/chenqiaoen.jpg" alt="陈乔恩的图片">
+			</figure>
+			<figure>
+				<figcaption>陈乔恩</figcaption>
+				<img src="../images/chenqiaoen.jpg" alt="陈乔恩的图片">
+			</figure>
+			<figure>
+				<figcaption>陈乔恩</figcaption>
+				<img src="../images/chenqiaoen.jpg" alt="陈乔恩的图片">
+			</figure>
+		</article>
+		<article>
+			<h2 class="title-one">最后一篇文章一级标题</h2>
+			<h3 class="title-two text-muted">文章二级标题</h3>
+			<p class="text-muted">文章作者 <time>文章发表时间</time></p>
+			<ol>
+				<li>排名1</li>
+				<li>排名2</li>
+				<li>排名3</li>
+			</ol>
+			<p>下面是一个表格</p>
+			<table>
+				<thead>
+					<th>表头</th>
+					<th>表头</th>
+					<th>表头</th>
+				</thead>
+				<tbody>
+					<tr>
+						<td>表内容单元格</td>
+						<td>表内容单元格</td>
+						<td><a href="#">操作</a></td>
+					</tr>
+					<tr>
+						<td>表内容单元格</td>
+						<td>表内容单元格</td>
+						<td><a href="#">操作</a></td>
+					</tr>
+					<tr>
+						<td>表内容单元格</td>
+						<td>表内容单元格</td>
+						<td><a href="#">操作</a></td>
+					</tr>
+					<tr>
+						<td>表内容单元格</td>
+						<td>表内容单元格</td>
+						<td><a href="#">操作</a></td>
+					</tr>
+					<tr>
+						<td>总计</td>
+						<td colspan="2">1000</td>
+					</tr>
+				</tbody>
+			</table>
+		</article>
+	</main>
+	<aside role="aside">
+		<h3 class="aside-title">这里以后是一个侧栏，这里是侧栏的标题</h3>
+		<form action="">
+			<div class="form-group">
+				<label for="email">请输入邮箱地址：</label>
+				<div class="form-item">
+					<input type="text" name="email">
+					<div class="text-muted">邮箱地址请按要求输入</div>
+				</div>
+				
+			</div>
+			<div class="form-group">
+				<label for="pwd">请输入密码：</label>
+				<input type="password" name="pwd">
+			</div>
+			<div class="form-group">
+				<label for="repwd">请重复输入密码：</label>
+				<div class="form-item">
+					<input type="password" name="repwd">
+					<div class="text-muted">密码请为6-16位英文数字</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="sex">性别：</label>
+				<input type="radio" name="sex" value="1" id="male" checked="">男 
+				<input type="radio" name="sex" value="2" id="female">女
+			</div>
+			<div class="form-group">
+				<label for="city">城市：</label>
+				<select name="city" id="city">
+					<option value="bj">北京</option>
+					<option value="wh">武汉</option>
+					<option value="sh">上海</option>
+					<option value="sz">深圳</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="hobbies">爱好：</label>
+				<input type="checkbox" name="sport" id="sport">运动
+				<input type="checkbox" name="art" id="art">艺术
+				<input type="checkbox" name="science" id="science">科学
+			</div>
+			<div class="form-group">
+				<label for="describe">个人描述：</label>
+				<textarea name="describe" id="describe" cols="50" rows="4">这是一个多行输入框，输入您的个人描述</textarea>
+			</div>
+			
+			<button type="button">确认提交</button>
+			
+		</form>
+	</aside>
+	<footer>
+		<span>版权所有© Copyright 2017 zwy </span>
+	</footer>
+</body>
+</html>

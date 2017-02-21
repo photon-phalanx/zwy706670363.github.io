@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>零基础HTML编码</title>
+</head>
+<body>
+	<header>
+		<h1>网站一级标题</h1>
+		<nav>
+			<ul>
+				<li><a href="#">导航链接一</a></li>
+				<li><a href="#">导航链接二</a></li>
+				<li><a href="#">导航链接三</a></li>
+				<li><a href="#">导航链接四</a></li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<article>
+			<h2>文章一级标题</h2>
+			<h3>文章二级标题</h3>
+			<p>文章作者 <time>文章发表时间</time></p>
+			<p>这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落<br>
+			这是一个很长的段落,这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，<a href="http://ife.baidu.com/2016/task/all">这里有一个链接，链接到百度前端技术学院</a>，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落<br></p>
+			<img src="../images/baidu.jpg" alt="图片">
+			<p>这是一个很长的段落,这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，<a href="http://ife.baidu.com/2016/task/all">这里有一个链接，链接到百度前端技术学院</a>，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落</p>
+		</article>
+		<article>
+			<h2>另一篇文章一级标题</h2>
+			<h3>文章二级标题</h3>
+			<p>文章作者 <time>文章发表时间</time></p>
+			<p>这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落</p>
+			<img src="../images/baidu.jpg" alt="图片">
+			<ul>
+				<li>列表项目一</li>
+				<li>列表项目二</li>
+				<li>列表项目三</li>
+			</ul>
+		</article>
+		<article>
+			<h2>图片</h2>
+			<figure>
+				<figcaption>陈乔恩</figcaption>
+				<img src="../images/chenqiaoen.jpg" alt="陈乔恩的图片">
+			</figure>
+			<figure>
+				<figcaption>陈乔恩</figcaption>
+				<img src="../images/chenqiaoen.jpg" alt="陈乔恩的图片">
+			</figure>
+			<figure>
+				<figcaption>陈乔恩</figcaption>
+				<img src="../images/chenqiaoen.jpg" alt="陈乔恩的图片">
+			</figure>
+		</article>
+		<article>
+			<h2>最后一篇文章一级标题</h2>
+			<h3>文章二级标题</h3>
+			<p>文章作者 <time>文章发表时间</time></p>
+			<ol>
+				<li>排名1</li>
+				<li>排名2</li>
+				<li>排名3</li>
+			</ol>
+			<p>下面是一个表格，给表格加border="1"是好让你看出是一个表格</p>
+			<table border="1">
+				<thead>
+					<th>表头</th>
+					<th>表头</th>
+					<th>表头</th>
+				</thead>
+				<tbody>
+					<tr>
+						<td>表内容单元格</td>
+						<td>表内容单元格</td>
+						<td><a href="#">操作</a></td>
+					</tr>
+					<tr>
+						<td>表内容单元格<表内容单元格/td>
+						<td>表内容单元格</td>
+						<td><a href="#">操作</a></td>
+					</tr>
+					<tr>
+						<td>表内容单元格</td>
+						<td>表内容单元格</td>
+						<td><a href="#">操作</a></td>
+					</tr>
+					<tr>
+						<td>表内容单元格</td>
+						<td>表内容单元格</td>
+						<td><a href="#">操作</a></td>
+					</tr>
+					<tr>
+						<td>总计</td>
+						<td colspan="2">1000</td>
+					</tr>
+				</tbody>
+			</table>
+		</article>
+	</main>
+	<aside>
+		<h2>这里以后是一个侧栏，这里是侧栏的标题</h2>
+		<h3>侧栏注册窗口标题</h3>
+		<form action="">
+			<label for="email">请输入邮箱地址：</label>
+			<input type="text" name="email">
+			<p>邮箱地址请按要求输入</p>
+			<label for="pwd">请输入密码：</label>
+			<input type="password" name="pwd">
+			<label for="repwd">请重复输入密码：</label>
+			<input type="password" name="repwd">
+			<p>密码请为6-16位英文数字</p>
+			<label for="sex">性别：</label>
+			<input type="radio" name="sex" value="1" id="male" checked="">男 
+			<input type="radio" name="sex" value="2" id="female">女
+			<label for="city">城市：</label>
+			<select name="city" id="city">
+				<option value="bj">北京</option>
+				<option value="wh">武汉</option>
+				<option value="sh">上海</option>
+				<option value="sz">深圳</option>
+			</select>
+			<label for="hobbies">爱好：</label>
+			<input type="checkbox" name="sport" id="sport">运动
+			<input type="checkbox" name="art" id="art">艺术
+			<input type="checkbox" name="science" id="science">科学
+			<label for="describe">个人描述：</label>
+			<textarea name="describe" id="describe" cols="30" rows="2">这是一个多行输入框，输入您的个人描述</textarea>
+			<input type="submit" value="确认提交">
+		</form>
+	</aside>
+	<footer>
+		<span>版权所有© Copyright 2017 zwy </span>
+	</footer>
+</body>
+</html>

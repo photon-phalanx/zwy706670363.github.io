@@ -1,0 +1,19 @@
+{
+  "name": "ife.baidu.com",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zwy706670363/ife.baidu.com.git"
+  },
+  "author": "zhuwanying",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zwy706670363/ife.baidu.com/issues"
+  },
+  "homepage": "https://github.com/zwy706670363/ife.baidu.com#readme"
+}
