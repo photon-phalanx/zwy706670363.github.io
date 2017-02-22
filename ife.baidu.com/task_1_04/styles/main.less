@@ -1,0 +1,44 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+#container{
+
+	/* 1.flex布局实现未知宽度和高度的水平垂直居中:设置父元素*/
+	// display: -webkit-flex;
+	// display:         flex;
+ //    justify-content:center;
+ //    align-items: center;
+
+
+	#main{
+
+		/* 2.使用css3的transform实现未知宽度和高度的垂直居中*/
+		position: absolute;
+    	top: 50%;
+    	left: 50%;
+    	transform: translate(-50%, -50%);
+		min-width: 400px;
+		min-height: 200px;
+		background-color: #ccc;
+		overflow: hidden;
+
+		.quarter-ball{
+			width: 100px;
+			height: 100px;
+			border-radius: 50px;
+			background-color: #fc0;
+		}
+		#left-top{
+			position: absolute;
+			left: -50px;
+			top: -50px;
+		}
+		#right-bottom{
+			position: absolute;
+			right: -50px;
+			bottom: -50px;
+		}
+	}
+}
