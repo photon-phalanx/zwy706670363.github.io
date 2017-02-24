@@ -2,7 +2,7 @@ var myChart = echarts.init(document.getElementById('main'));
 
 myChart.showLoading();
 
-var dataAxis = ['点', '击', '柱', '子', '或', '者', '两', '指', '在', '触', '屏', '上', '滑', '动', '能', '够', '自', '动', '缩', '放'];
+var dataAxis = ['点', '击', '柱', '子', '或', '者', '鼠', '标', '滑', '动', '滚', '轮', '能', '够', '实','现', '自', '动', '缩', '放'];
 var data = [220, 182, 191, 234, 290, 330, 310, 123, 442, 321, 90, 149, 210, 122, 133, 334, 198, 123, 125, 220];
 var yMax = 500;
 var dataShadow = [];
@@ -13,9 +13,13 @@ for (var i = 0; i < data.length; i++) {
 
 option = {
     title: {
-        text: '特性示例：渐变色 阴影 点击缩放',
+        text: '特性示例：柱状图混合折线 点击或滚动缩放',
         subtext: '来自echarts官网',
         left: 'center'
+    },
+    legend: {
+        top: 'bottom',
+        data:  ['柱状图','折线图']
     },
     xAxis: {
         data: dataAxis,
@@ -63,6 +67,7 @@ option = {
             animation: false
         },
         {
+            name:'柱状图',
             type: 'bar',
             itemStyle: {
                 normal: {
@@ -89,6 +94,7 @@ option = {
             data: data
         },
         {
+            name:'折线图',
             type: 'line',
             hoverAnimation: true,
             itemStyle: {
@@ -96,9 +102,9 @@ option = {
                     color: new echarts.graphic.LinearGradient(
                         0, 0, 0, 1,
                         [
-                            {offset: 0, color: '#83bff6'},
-                            {offset: 0.5, color: '#188df0'},
-                            {offset: 1, color: '#188df0'}
+                            {offset: 0, color: 'red'},
+                            {offset: 0.5, color: 'yellow'},
+                            {offset: 1, color: 'blue'}
                         ]
                     )
                 },
@@ -106,9 +112,9 @@ option = {
                     color: new echarts.graphic.LinearGradient(
                         0, 0, 0, 1,
                         [
-                            {offset: 0, color: '#2378f7'},
-                            {offset: 0.7, color: '#2378f7'},
-                            {offset: 1, color: '#83bff6'}
+                            {offset: 0, color: 'red'},
+                            {offset: 0.7, color: 'yellow'},
+                            {offset: 1, color: 'blue'}
                         ]
                     )
                 }
@@ -123,6 +129,7 @@ myChart.hideLoading();
 // Enable data zoom when user click bar.
 var zoomSize = 6;
 myChart.on('click', function (params) {
+    console.log(params);
     console.log(dataAxis[Math.max(params.dataIndex - zoomSize / 2, 0)]);
     myChart.dispatchAction({
         type: 'dataZoom',
@@ -131,6 +138,7 @@ myChart.on('click', function (params) {
     });
 });
 
+// 地图
 // option = {
 //     title : {
 //         text: 'QQ好友管理器',
