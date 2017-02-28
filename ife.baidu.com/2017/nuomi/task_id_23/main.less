@@ -1,0 +1,122 @@
+*{
+	box-sizing: border-box;
+}
+
+#container{
+	margin: 0 20px;
+
+	ol{
+		padding-left: 20px;
+	}
+
+	// 背景图 通过定位
+	#bg{
+		margin-bottom: 20px;
+		
+		input{
+			display: none;
+			margin: 0;
+		}
+		
+		.checkbox_bg+label,.radio_bg+label{
+			display: -webkit-flex;
+			display: 		 flex;
+			width: 16px;
+			height: 16px;
+			margin-right: 10px;
+			border: none;
+			background-image: url('bg.png');
+			background-repeat: no-repeat;
+		}
+
+		.checkbox{
+			display: -webkit-flex;
+			display: 		 flex;
+			margin-bottom: 10px;
+
+			.checkbox_bg + label{
+				
+				background-position: -24px -32px;
+			}
+			.checkbox_bg:checked+label {
+				background-position: -60px -32px;
+			}
+		}
+		
+		.radio{
+			display: -webkit-flex;
+			display: 		 flex;
+			.radio_bg + label{
+				background-position: -24px -10px;
+			}
+			.radio_bg:checked+label {
+				background-position: -59px -10px;
+			}
+		}
+	}
+
+	// 伪元素
+	#wl{
+		input{
+			display: none;
+			margin: 0;
+		}
+
+		.checkbox{
+			display: -webkit-flex;
+			display: 		 flex;
+			margin-bottom: 10px;
+
+			.checkbox_wl+label{
+				display: -webkit-flex;
+				display: 		 flex;
+				width:16px;
+  				height: 16px;
+  				margin-right: 10px;
+  				border:1px solid #d9d9d9;
+			}
+			.checkbox_wl:checked+label{
+				border:1px solid #d73d32;
+				font-weight: 700;
+			}
+			.checkbox_wl:checked+label::after{	// 伪元素
+				width: 8px;
+				height: 8px;
+				line-height: 8px;
+				content: '\2714';
+				color: red;
+				font-size: 12px;
+				margin: auto;
+			}
+		}
+
+		.radio{
+			display: -webkit-flex;
+			display: 		 flex;
+
+			.radio_wl+label{
+				display: -webkit-flex;
+				display: 		 flex;
+				width: 16px;
+				height: 16px;
+				margin-right: 10px;
+				border: 1px solid #d9d9d9;
+				border-radius: 50%;
+			}
+			.radio_wl:checked+label{
+				border:1px solid #d73d32;
+				font-weight: 700;
+			}
+			.radio_wl:checked+label::after{	// 伪元素
+				width: 8px;
+				height: 8px;
+				line-height: 8px;
+				content: '';
+				background-color: #d73d32;
+				border-radius: 50%;
+				margin: auto;
+			}
+		}
+
+	}
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义checkbox,radio样式</title>
+	<link rel="stylesheet" href="main.css">
+</head>
+<body>
+	<div id="container">
+		<h2>任务目的</h2>
+		<ol>
+			<li>深入了解HTML label标签</li>
+			<li>了解CSS边框、背景、伪元素、伪类（注意和伪元素区分）等属性的设置</li>
+			<li>了解CSS中常见的雪碧图，并能自己制作使用雪碧图</li>
+		</ol>
+		<div id="bg">
+			<h2>用背景图实现：</h2>
+			<div class="checkbox">
+				<input type="checkbox" name="checkbox1" id="checkbox1" class="checkbox_bg">
+				<label for="checkbox1"></label>
+				<input type="checkbox" name="checkbox2" id="checkbox2" class="checkbox_bg">
+				<label for="checkbox2"></label> 
+				<input type="checkbox" name="checkbox3" id="checkbox3" class="checkbox_bg">
+				<label for="checkbox3"></label>
+			</div>
+			<div class="radio">
+				<input type="radio" name="radioGroup" id="radio1" class="radio_bg">
+				<label for="radio1"></label>
+				<input type="radio" name="radioGroup" id="radio2" class="radio_bg">
+				<label for="radio2"></label>
+			</div>
+		</div>
+		<div id="wl">
+			<h2>用伪类实现：</h2>
+			<div class="checkbox">
+				<input type="checkbox" name="checkbox4" id="checkbox4" class="checkbox_wl">
+				<label for="checkbox4"></label>
+				<input type="checkbox" name="checkbox5" id="checkbox5" class="checkbox_wl">
+				<label for="checkbox5"></label> 
+				<input type="checkbox" name="checkbox6" id="checkbox6" class="checkbox_wl">
+				<label for="checkbox6"></label>
+			</div>
+			<div class="radio">
+				<input type="radio" name="radioGroup2" id="radio3" class="radio_wl">
+				<label for="radio3"></label>
+				<input type="radio" name="radioGroup2" id="radio4" class="radio_wl">
+				<label for="radio4"></label>
+			</div>	
+		</div>		
+	</div>
+</body>
+</html>
