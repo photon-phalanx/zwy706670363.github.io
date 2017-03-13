@@ -9,8 +9,6 @@ function Observer(data){
 	this.walk(data);
 }
 
-// let p = Observer.prototype;
-
 // 此函数用于深层次遍历对象的各个属性
 // 采用的是递归的思想
 // 因为我们要为对象的每一个属性绑定getter和setter
@@ -47,6 +45,7 @@ Observer.prototype.convert = function(key,val){
 	});
 }
 
+// 测试
 let data = {
 	user: {
 		name: 'zhuwanying',
@@ -57,10 +56,10 @@ let data = {
 	}
 }
 
-// add 是生成的对象，他自身属性有data,walk
-// 在add被实例化时，add.[[Prototype]]指向了Observer.prototype
-// 即设置add.[[Prototype]] = Observer.prototype
-let add = new Observer(data);
+// app 是生成的对象，他自身属性有data,walk
+// 在app被实例化时，app.[[Prototype]]指向了Observer.prototype
+// 即设置app.[[Prototype]] = Observer.prototype
+let app = new Observer(data);
 
 console.log(data);
-add.data.user.age = 25;
+app.data.user.age = 25;
