@@ -63,3 +63,4 @@ let data = {
 let add = new Observer(data);
 
 console.log(data);
+add.data.user.age = 25;
