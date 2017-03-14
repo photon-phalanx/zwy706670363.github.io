@@ -26,12 +26,20 @@
 	}
 
 	input[type='radio']:checked + .panel-body{
-		display: block;
-
+		// height: auto;
+		max-height: 300px;
+		-webkit-transition: all 1s;
+		        transition: all 1s;
 	}
 	.panel-body{
-		padding: 15px;
-		display: none;
+		overflow: hidden;
+		// height: 0;
+		max-height: 0;
+		-webkit-transition: all 1s;
+		        transition: all 1s;
+		p{
+			margin: 15px;
+		}
 	}
 
 }
