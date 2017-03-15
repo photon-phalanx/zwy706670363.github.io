@@ -86,19 +86,28 @@ body{
 			position: absolute;
 			left: 20px;
 			top: 20px; 
-			box-sizing: border-box;
 		}
-
-		.circle{
-			width: 0;
-			height: 0;
-			border-radius: 100px;
-			border: 50px solid @color;
-			transform: rotate(45deg);
-			border-right-color: @lightcolor;
-			border-top-color: @lightcolor;	
+		// 静态圆
+		.circle::before,.circle::after{
+			content: '';
+			display: block;
+			width: 50px;
+			height: 100px;	
+    		position: absolute;
 		}
-
+		.circle::before{
+			background-color: @color;
+			border-top-left-radius: 50px;
+    		border-bottom-left-radius: 50px;
+		}
+		.circle::after{
+			
+			background-color: @lightcolor;
+			border-top-right-radius: 50px;
+			border-bottom-right-radius: 50px;
+			left: 50px;
+		}
+		// 动态圆
 		.two-quarters-circle{
 			width: 50px;
 			height: 100px;
