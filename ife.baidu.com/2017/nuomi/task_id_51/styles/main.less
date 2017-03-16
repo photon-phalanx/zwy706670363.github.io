@@ -1,0 +1,97 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+html,body{
+	height: 100%;
+	background-color: #f2f2f2;
+}
+// css字体颜色滚动动画
+@keyframes streamer {
+    0%  {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: -100% 0;
+    }
+}
+@-webkit-keyframes streamer {
+    0%  {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: -100% 0;
+    }
+}
+h2{
+	width: 200px;
+	margin: 10px auto;
+	// 绘制渐变背景图
+	background-image: -webkit-linear-gradient(left,red, orange 10%, yellow 20%, green 30%, violet 40%, red 50%, orange 60%, yellow 70%, green 80%, violet 90%, red 100%);
+	// 裁剪背景图
+	-webkit-background-clip: text;
+	// 设置字体颜色为透明
+	-webkit-text-fill-color: transparent;
+	background-size: 200% 100%;
+	-webkit-animation: streamer 10s infinite linear;
+			animation: streamer 10s infinite linear;
+}
+
+.banner{
+	width: 280px;
+	height: 150px;
+	margin: 150px auto;
+	position: relative;
+	-webkit-perspective: 800px; 
+			perspective: 800px; 
+
+	.target{
+		-webkit-transform-style: preserve-3d;
+				transform-style: preserve-3d;
+	}
+
+	.target.rotate{
+		-webkit-transition: transform ease-in-out 1s;
+				transition: transform ease-in-out 1s;
+	}
+
+	ul{
+		list-style: none;
+
+		li{
+			position: absolute;
+			img{
+				width: 100%;
+			}
+		}
+
+		li:nth-child(1){
+			-webkit-transform: rotateY(0deg) translateZ(450px);
+					transform: rotateY(0deg) translateZ(450px);
+
+		}
+		li:nth-child(2){
+			-webkit-transform: rotateY(60deg) translateZ(450px);
+					transform: rotateY(60deg) translateZ(450px);
+
+		}
+		li:nth-child(3){
+			-webkit-transform: rotateY(120deg) translateZ(450px);
+					transform: rotateY(120deg) translateZ(450px);
+		}
+		li:nth-child(4){
+			-webkit-transform: rotateY(180deg) translateZ(450px);
+					transform: rotateY(180deg) translateZ(450px);
+		}
+		li:nth-child(5){
+			-webkit-transform: rotateY(240deg) translateZ(450px);
+					transform: rotateY(240deg) translateZ(450px);
+		}
+		li:nth-child(6){
+			-webkit-transform: rotateY(300deg) translateZ(450px);
+					transform: rotateY(300deg) translateZ(450px);
+		}
+	}
+  
+}
