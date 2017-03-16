@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3D面包屑轮播图</title>
+    <link rel="stylesheet" href="styles/carousel.css">
+</head>
+<body>
+    <div class="banner">
+        <ul>
+            <!-- 四张图被分成五块 -->
+            <li>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </li>
+            <li>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </li>
+            <li>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </li>
+            <li>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </li>
+            <li>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </li>
+        </ul>
+        <a href="javascript:void(0);" class="prev">&lt;</a>
+        <a href="javascript:void(0);" class="next">&gt;</a>
+    </div>
+    <script>
+        (function(){
+            let current = 0;
+            let prev = document.querySelectorAll(".prev")[0];
+            let next = document.querySelectorAll(".next")[0];
+            let banner =  document.querySelectorAll(".banner")[0];
+            const liList = Array.from(banner.querySelectorAll('li'));
+
+            prev.onclick = () => {
+                current--;
+                liList.forEach((li,idx) => {
+                    li.style['transform'] = 'rotateX('+current*90+'deg)';
+                    li.style['transition-delay'] = idx*0.25+'s';
+                });
+            }
+
+            next.onclick = () => {
+                current++;
+                liList.forEach((li,idx) => {
+                    li.style['transform'] = 'rotateX('+(-current)*90+'deg)';
+                    li.style['transition-delay'] = idx*0.25+'s';
+                });
+            }
+        })();
+    </script>
+</body>
+</html>
